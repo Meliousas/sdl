@@ -87,4 +87,33 @@ SDL_Surface *load_image(std::string filename, int n = 0)         ///FUNCTION FOR
 	return optimizedImage;
 }
 
+bool load_files()
+{
+	///Load the background image
+	background = load_image("images/back.png");
+
+	///If there was a problem in loading the background
+	if (background == NULL)
+	{
+		return false;
+	}
+
+	OBSTACLES = load_image("images/hitwalls.png");
+	if (OBSTACLES == NULL)
+	{
+		return false;
+	}
+
+	///Load the helicopter image
+	heli = load_image("images/heli.png");
+
+	///If there was a problem in loading the helicopter
+	if (heli == NULL)
+	{
+		return false;
+	}
+	///If everything loaded fine
+	return true;
+}
+
 #endif //UNTITLED_LOADER_H

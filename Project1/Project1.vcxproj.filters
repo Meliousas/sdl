@@ -35,6 +35,18 @@
     <ClInclude Include="window.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="play.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="constants.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="obstacles.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="heli.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="images\menu\main.png">
@@ -44,6 +56,18 @@
       <Filter>Pliki zasobów</Filter>
     </Image>
     <Image Include="images\menu\quit.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="images\heli.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="images\hitwalls.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="images\back.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="images\game_over.png">
       <Filter>Pliki zasobów</Filter>
     </Image>
   </ItemGroup>

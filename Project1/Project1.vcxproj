@@ -138,13 +138,21 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="constants.h" />
     <ClInclude Include="game_functions.h" />
+    <ClInclude Include="heli.h" />
     <ClInclude Include="loader.h" />
+    <ClInclude Include="obstacles.h" />
+    <ClInclude Include="play.h" />
     <ClInclude Include="timer.h" />
     <ClInclude Include="variables.h" />
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="images\back.png" />
+    <Image Include="images\game_over.png" />
+    <Image Include="images\heli.png" />
+    <Image Include="images\hitwalls.png" />
     <Image Include="images\menu\main.png" />
     <Image Include="images\menu\play.png" />
     <Image Include="images\menu\quit.png" />

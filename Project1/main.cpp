@@ -5,6 +5,7 @@
 #include "window.h"
 #include "loader.h"
 #include "game_functions.h"
+#include "play.h"
 
 int main(int argc, char* args[])
 {
@@ -21,7 +22,7 @@ int main(int argc, char* args[])
 		switch (opt) {
 		case 1:
 			/// play
-			  //  play();
+			    play();
 			break;
 		case 2:
 			/// quit
