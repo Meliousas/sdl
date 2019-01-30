@@ -41,8 +41,8 @@ Heli::Heli()
 	box.x = 350;                               ///SETS THE INITIAL POSITION OF THE HELICOPTER
 	box.y = 350;
 	///Set the helicopter's dimentions
-	box.w = 144;
-	box.h = 53;
+	box.w = 100;
+	box.h = 100;
 
 	///Initialize the velocity
 	xVel = 0;
@@ -62,9 +62,9 @@ void Heli::handle_input()
 		///Adjust the velocity
 		switch (event.key.keysym.sym)
 		{
-		case SDLK_UP: yVel -= 53/ 2;
+		case SDLK_UP: yVel -= 100/ 2;
 			break;
-		case SDLK_DOWN: yVel += 53 / 5; break;
+		case SDLK_DOWN: yVel += 100 / 5; break;
 		default:
 			break;
 
@@ -77,8 +77,8 @@ void Heli::handle_input()
 		///Adjust the velocity
 		switch (event.key.keysym.sym)
 		{
-		case SDLK_UP: yVel += 53 / 2; break;
-		case SDLK_DOWN: yVel -= 53 / 5; break;
+		case SDLK_UP: yVel += 100 / 2; break;
+		case SDLK_DOWN: yVel -= 100 / 5; break;
 
 		default:
 			break;
@@ -96,7 +96,7 @@ void Heli::move()
 	for (int i = 0; i < 7; ++i)                ///COLLISION LOOP OF THE HELICOPTER
 	{
 		///If the helicopter went too far up or down or has collided with the OBSTACLES
-		if ((box.y < 0) || (box.y + 53 > 768) || (check_collision(box, wall2) || check_collision(box, wall3[i])))
+		if ((box.y < 0) || (box.y + 100 > 768) || (check_collision(box, wall2) || check_collision(box, wall3[i])))
 		{
 			///Move back
 			box.y -= yVel;

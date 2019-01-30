@@ -18,6 +18,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="timer.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="loader.h">
@@ -49,25 +52,28 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="images\menu\main.png">
-      <Filter>Pliki zasobów</Filter>
-    </Image>
-    <Image Include="images\menu\play.png">
-      <Filter>Pliki zasobów</Filter>
-    </Image>
-    <Image Include="images\menu\quit.png">
-      <Filter>Pliki zasobów</Filter>
-    </Image>
     <Image Include="images\heli.png">
       <Filter>Pliki zasobów</Filter>
     </Image>
     <Image Include="images\hitwalls.png">
       <Filter>Pliki zasobów</Filter>
     </Image>
+    <Image Include="images\game_over.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
     <Image Include="images\back.png">
       <Filter>Pliki zasobów</Filter>
     </Image>
-    <Image Include="images\game_over.png">
+    <Image Include="images\menu\quit.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="images\menu\play.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="images\menu\main.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="images\test.png">
       <Filter>Pliki zasobów</Filter>
     </Image>
   </ItemGroup>

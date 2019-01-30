@@ -49,18 +49,18 @@ bool check_collision(SDL_Rect A, SDL_Rect B)
 	return true;
 }
 
-void apply_surface(int x, int y, SDL_Surface* source, SDL_Surface* destination, SDL_Rect* clip = NULL)
-{
-	///Holds offsets
-	SDL_Rect offset;
-
-	///Get offsets
-	offset.x = x;
-	offset.y = y;
-
-	///Blit
-	SDL_BlitSurface(source, clip, destination, &offset);
-}
+//void apply_surface(int x, int y, SDL_Surface* source, SDL_Surface* destination, SDL_Rect* clip = NULL)
+//{
+//	///Holds offsets
+//	SDL_Rect offset;
+//
+//	///Get offsets
+//	offset.x = x;
+//	offset.y = y;
+//
+//	///Blit
+//	SDL_BlitSurface(source, clip, destination, &offset);
+//}
 
 class obstacle
 {
@@ -101,9 +101,7 @@ obstacle::obstacle()
 }
 void obstacle::show()
 {
-	apply_surface(box[0].x, box[0].y, transparent, background);
-	apply_surface(box[1].x, box[1].y, transparent, background);
-	for (int i = 2; i < 7; ++i)
+	for (int i = 0; i < 7; ++i)
 		apply_surface(box[i].x, box[i].y, OBSTACLES, background);
 
 }

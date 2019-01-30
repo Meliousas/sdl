@@ -16,6 +16,7 @@ private:
 
 public:
 	Window();
+	bool error();
 };
 
 Window::Window()
@@ -34,5 +35,11 @@ Window::Window()
 
 	windowed = true;
 }
+
+bool Window::error()
+{
+	return !windowOK;
+}
+
 
 #endif //UNTITLED_WINDOW_H

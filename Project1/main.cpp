@@ -21,11 +21,9 @@ int main(int argc, char* args[])
 		opt = game_menu();        /// menu load
 		switch (opt) {
 		case 1:
-			/// play
 			    play();
 			break;
 		case 2:
-			/// quit
 			cont = false;
 			break;
 		default:

@@ -30,10 +30,8 @@ bool init()
 void clean_up()
 {
 	SDL_FreeSurface(heli);
-	//   SDL_FreeSurface( OBSTACLES );
+    SDL_FreeSurface( OBSTACLES );
 	SDL_FreeSurface(background);
-	SDL_FreeSurface(welcome);
-	SDL_FreeSurface(transparent);
 
 	SDL_Quit();
 }

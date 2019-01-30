@@ -11,7 +11,7 @@
 #include "timer.h"
 
 void clean_menu_surfaces();
-void update_screen(Timer& time, int score);
+//void update_screen(Timer& time, int score);
 
 void apply_surface(int x, int y, SDL_Surface* source, SDL_Surface* destination, SDL_Rect* clip = NULL)
 {
@@ -50,14 +50,14 @@ int game_menu()
 				x = mouse_event.motion.x;           /// mouse coords
 				y = mouse_event.motion.y;
 
-				if ((x > 730) && (x < 1010) && (y > 120) && (y < 180))     /// start
+				if ((x > 630) && (x < 1010) && (y > 120) && (y < 180))     /// start
 				{
 					std::string myString("start move");
 
 					apply_surface(0, 0, play_menu, screen);
 				}
 
-				else if ((x > 730) && (x < 1010) && (y > 200) && (y < 280))       /// quit
+				else if ((x > 630) && (x < 1010) && (y > 150) && (y < 280))       /// quit
 				{
 					std::string myString("quit move");
 				
@@ -80,14 +80,14 @@ int game_menu()
 				std::string myString("event clicked");
 
 
-				if ((x > 730) && (x < 1010) && (y > 120) && (y < 180))
+				if ((x > 630) && (x < 1010) && (y > 120) && (y < 180))
 				{
 					std::string myString("start clicked");
 
 					choice = 1;                             /// start
 					session = false;
 				}
-				else if ((x > 730) && (x < 1010) && (y > 200) && (y < 280))
+				else if ((x > 630) && (x < 1010) && (y > 150) && (y < 280))
 				{
 					std::string myString("quit clicked");
 
@@ -115,30 +115,30 @@ int game_menu()
 	clean_menu_surfaces();
 	return choice;
 }
-void update_screen(Timer& TimE,int score)       ///UPDATES THE SCREEN
-{
-    std::stringstream samaya;
-    int a=TimE.get_ticks();
-    if(a<60000)
-    {
-        samaya<< "SCORE: "<<score
-              <<"  TIME: " << a/60000<<" : "<<a / 1000;            ///DISPLAYS SCORE AND TIME
-    }
-    else
-    {
-        int sec=a/1000;
-        int min=0;
-        min=sec/60;
-        sec-=min*60;
-        samaya<< "SCORE:  "<<score
-              << "    TIME: " << min<<" : "<<sec;
-
-    }
-   // message = TTF_RenderText_Solid( font , samaya.str().c_str() , textColor ) ;
-    apply_surface((1366-message->w)/2,0,message,screen);
-    SDL_FreeSurface(message);
-
-}
+//void update_screen(Timer& TimE,int score)       ///UPDATES THE SCREEN
+//{
+//    std::stringstream samaya;
+//    int a=TimE.get_ticks();
+//    if(a<60000)
+//    {
+//        samaya<< "SCORE: "<<score
+//              <<"  TIME: " << a/60000<<" : "<<a / 1000;            ///DISPLAYS SCORE AND TIME
+//    }
+//    else
+//    {
+//        int sec=a/1000;
+//        int min=0;
+//        min=sec/60;
+//        sec-=min*60;
+//        samaya<< "SCORE:  "<<score
+//              << "    TIME: " << min<<" : "<<sec;
+//
+//    }
+//   // message = TTF_RenderText_Solid( font , samaya.str().c_str() , textColor ) ;
+//    apply_surface((1366-message->w)/2,0,message,screen);
+//    SDL_FreeSurface(message);
+//
+//}
 
 void clean_menu_surfaces()
 {

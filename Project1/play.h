@@ -20,8 +20,8 @@
 #include "obstacles.h"
 #include "heli.h"
 
-SDL_Rect wall2;
-SDL_Rect wall3[7];
+//SDL_Rect wall2;
+//SDL_Rect wall3[7];
 
 void wall3_coord()                                  ///SETS COORDINATES OF THE OBSTACLES
 {
@@ -59,7 +59,18 @@ int play()
 	obstacle obs;                       ///CREATING OBJECT OF THE OBSTACLE CLASS
 
 	///Create a window
-	//Window myWindow;
+	Window myWindow;
+
+	if (myWindow.error() == true)
+	{
+		return 1;
+	}
+
+	 ///Load the files
+	if (load_files() == false)
+	{
+		return 1;
+	}
 
 	///Start the frame timer
 	fps.start();
@@ -68,8 +79,7 @@ int play()
 	{
 		///While there's events to handle
 		while (SDL_PollEvent(&event))
-		{
-			
+		{			
 			///Handle events for the heli
 			myheli.handle_input();
 
@@ -140,13 +150,13 @@ int play()
 				wall3[i].x -= 10;     ///Move the collision wall along with the background
 			}
 		}
-		//If the background has gone too far
+	//	If the background has gone too far
 		if (bgX <= -background->w)
 		{
-			///Reset the offset of background
+		//	Reset the offset of background
 			bgX = 0;
 
-			///RESET THE OFFSET OF THE COLLISION WALL
+		//	RESET THE OFFSET OF THE COLLISION WALL
 			wall3[0].x = 0;
 			wall3[0].y = 0;
 			wall3[1].x = 0;
@@ -168,6 +178,7 @@ int play()
 		apply_surface(bgX, bgY, background, screen);
 		apply_surface(bgX + background->w, bgY, background, screen);
 
+
 		///move the helicopter
 		myheli.move();
 
@@ -175,7 +186,7 @@ int play()
 		myheli.show();
 		obs.show();         ///SHOWS THE OBSTACLES
 
-		update_screen(fps, myheli.get_score());       ///DISPLAYS THE SCORE AND TIME
+	//	update_screen(fps, myheli.get_score());       ///DISPLAYS THE SCORE AND TIME
 		if (fps.get_ticks() > 300000)                  ///IF TIME IS GREATER THAN 5 MIN, THEN QUIT:
 		{
 			game_over = load_image("images/game_over.png");
