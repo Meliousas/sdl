@@ -3,12 +3,11 @@
 
 #include "loader.h"
 #include "obstacles.h"
-#include "timer.h"
 
 SDL_Rect wall2;
 SDL_Rect wall3[7];
 
-class Heli :public Timer         ///CLASS OF THE HELICOPTER
+class Heli
 {
 private:
 	///The velocity of the helicopter
@@ -18,6 +17,7 @@ private:
 public:
 	///The collision box of the helicopter
 	SDL_Rect box;
+	bool dead = false;
 	Heli();                 ///CONSTRUCTOR
 
 	///Takes key presses and adjusts the helicopter's velocity
@@ -106,15 +106,15 @@ void Heli::move()
 
 			apply_surface(box.x, box.y, heli, screen);
 			SDL_UpdateWindowSurface(window);
-
+			dead = true;
 
 			///LOADS THE GAME OVER IMAGE
 			apply_surface(0, 0, game_over, screen);
 
-			SDL_Delay(2000);
 			SDL_UpdateWindowSurface(window);
 
 
+			SDL_Delay(1000);
 		}
 	}
 }

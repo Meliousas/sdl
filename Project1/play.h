@@ -13,7 +13,6 @@
 #include "SDL_rect.h"
 #include "SDL.h"
 #include "SDL_events.h"
-#include "timer.h"
 #include "variables.h"
 #include "game_functions.h"
 #include "loader.h"
@@ -55,7 +54,6 @@ int play()
 	Heli myheli;                        ///CREATING OBJECT OF THE HELI CLASS
 
 	///The frame rate regulator
-	Timer fps;                          ///CREATING OBJECT OF THE TIMER CLASS
 	obstacle obs;                       ///CREATING OBJECT OF THE OBSTACLE CLASS
 
 	///Create a window
@@ -72,8 +70,6 @@ int play()
 		return 1;
 	}
 
-	///Start the frame timer
-	fps.start();
 	///While the user hasn't quit
 	while (quit == false)
 	{
@@ -100,8 +96,6 @@ int play()
 
 			}
 		}
-		if (fps.get_ticks() < 10000)
-		{
 			///Scroll background
 			bgX -= 10;
 			for (int i = 0; i < 7; ++i)
@@ -109,47 +103,6 @@ int play()
 				///Move the collision wall along with the background
 				wall3[i].x -= 10;
 			}
-
-		}
-		else if (fps.get_ticks() < 40000)
-		{
-
-			bgX -= 15;
-			for (int i = 0; i < 7; ++i)
-			{
-				wall3[i].x -= 15; ///Move the collision wall along with the background
-			}
-		}
-		else if (fps.get_ticks() < 90000)
-		{
-
-			bgX -= 20;
-			for (int i = 0; i < 7; ++i)
-			{
-				wall3[i].x -= 20;     ///Move the collision wall along with the background
-			}
-		}
-
-		else if (fps.get_ticks() < 120000)
-		{
-
-			bgX -= 25;
-			for (int i = 0; i < 7; ++i)
-			{
-				wall3[i].x -= 25;     ///Move the collision wall along with the background
-			}
-		}
-
-		else
-		{
-
-			bgX -= 30;
-
-			for (int i = 0; i < 7; ++i)
-			{
-				wall3[i].x -= 10;     ///Move the collision wall along with the background
-			}
-		}
 	//	If the background has gone too far
 		if (bgX <= -background->w)
 		{
@@ -182,19 +135,15 @@ int play()
 		///move the helicopter
 		myheli.move();
 
+		if (myheli.dead) {
+			quit = true;
+			break;
+		}
+		
 		///show the helicopter on the screen
 		myheli.show();
 		obs.show();         ///SHOWS THE OBSTACLES
 
-	//	update_screen(fps, myheli.get_score());       ///DISPLAYS THE SCORE AND TIME
-		if (fps.get_ticks() > 300000)                  ///IF TIME IS GREATER THAN 5 MIN, THEN QUIT:
-		{
-			game_over = load_image("images/game_over.png");
-			apply_surface(0, 0, game_over, screen);
-			SDL_UpdateWindowSurface(window);
-			quit = true;
-
-		}
 		///Update the screen
 		if (SDL_UpdateWindowSurface(window) == -1)
 		{
@@ -206,11 +155,7 @@ int play()
 		///Show the background
 		apply_surface(0, 0, background, screen, &camera);
 
-		///Cap the frame rate
-		if (fps.get_ticks() < 1000 / 50)
-		{
-			SDL_Delay((1000 / 50) - fps.get_ticks());
-		}
+		SDL_Delay(100);
 	}
 
 	return 0;

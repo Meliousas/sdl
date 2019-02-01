@@ -1,6 +1,5 @@
 #ifndef COLLISION_H_INCLUDED
 #define COLLISION_H_INCLUDED
-#include "constants.h"
 #include "variables.h"
 
 SDL_Rect camera = { 0, 0, 1024, 768 };

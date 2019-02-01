@@ -8,7 +8,6 @@
 #include <sstream>
 #include "variables.h"
 #include "window.h"
-#include "timer.h"
 
 void clean_menu_surfaces();
 //void update_screen(Timer& time, int score);
