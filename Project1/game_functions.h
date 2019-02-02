@@ -14,14 +14,11 @@ void clean_menu_surfaces();
 
 void apply_surface(int x, int y, SDL_Surface* source, SDL_Surface* destination, SDL_Rect* clip = NULL)
 {
-	///Holds offsets
 	SDL_Rect offset;
 
-	///Get offsets
 	offset.x = x;
 	offset.y = y;
 
-	///Blit
 	SDL_BlitSurface(source, clip, destination, &offset);
 }
 
@@ -111,30 +108,6 @@ int game_menu()
 	clean_menu_surfaces();
 	return choice;
 }
-//void update_screen(Timer& TimE,int score)       ///UPDATES THE SCREEN
-//{
-//    std::stringstream samaya;
-//    int a=TimE.get_ticks();
-//    if(a<60000)
-//    {
-//        samaya<< "SCORE: "<<score
-//              <<"  TIME: " << a/60000<<" : "<<a / 1000;            ///DISPLAYS SCORE AND TIME
-//    }
-//    else
-//    {
-//        int sec=a/1000;
-//        int min=0;
-//        min=sec/60;
-//        sec-=min*60;
-//        samaya<< "SCORE:  "<<score
-//              << "    TIME: " << min<<" : "<<sec;
-//
-//    }
-//   // message = TTF_RenderText_Solid( font , samaya.str().c_str() , textColor ) ;
-//    apply_surface((1366-points->w)/2,0,points,screen);
-//    SDL_FreeSurface(points);
-//
-//}
 
 void clean_menu_surfaces()
 {
