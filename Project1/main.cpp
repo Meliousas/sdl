@@ -9,28 +9,28 @@
 
 int main(int argc, char* args[])
 {
-	bool cont = true;
+	bool notQuited = true;
 
 	if (!init()) { return 1; }
 
 	int opt;
 	SDL_Delay(2000);
 
-	while (cont)
+	while (notQuited)
 	{
-		opt = game_menu();        /// menu load
+		opt = game_menu();        
 		switch (opt) {
 		case 1:
-			    play();
+			play();
 			break;
 		case 2:
-			cont = false;
+			notQuited = false;
 			break;
 		default:
 			break;
 		}
 	}
 
-	clean_up(); /// clear objects
+	clean_up(); 
 	return 0;
 }

@@ -14,7 +14,8 @@ bool init()
 	{
 		return false;
 	}
-	window = SDL_CreateWindow("My Game Window",
+
+	window = SDL_CreateWindow("My Cat Game Window",
 		SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
 		1024, 768,
@@ -23,21 +24,18 @@ bool init()
 	screen = SDL_GetWindowSurface(window);
 	SDL_UpdateWindowSurface(window);
 
-	/// catch screen error
 	return screen != NULL;
-
 }
 void clean_up()
 {
 	SDL_FreeSurface(heli);
-    SDL_FreeSurface( OBSTACLES );
+    SDL_FreeSurface(OBSTACLES);
 	SDL_FreeSurface(background);
 
 	SDL_Quit();
 }
 
-SDL_Surface *load_image(std::string filename, int n = 0)         ///FUNCTION FOR LOADING IMAGE
-{
+SDL_Surface *load_image(std::string filename, int n = 0)      {
 	///The image that's loaded
 	SDL_Surface* loadedImage = NULL;
 
@@ -87,10 +85,7 @@ SDL_Surface *load_image(std::string filename, int n = 0)         ///FUNCTION FOR
 
 bool load_files()
 {
-	///Load the background image
 	background = load_image("images/back.png");
-
-	///If there was a problem in loading the background
 	if (background == NULL)
 	{
 		return false;
@@ -102,15 +97,12 @@ bool load_files()
 		return false;
 	}
 
-	///Load the helicopter image
 	heli = load_image("images/heli.png");
-
-	///If there was a problem in loading the helicopter
 	if (heli == NULL)
 	{
 		return false;
 	}
-	///If everything loaded fine
+
 	return true;
 }
 

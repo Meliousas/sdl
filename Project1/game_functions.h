@@ -34,9 +34,6 @@ int game_menu()
 	play_menu = load_image("images/menu/play.png");
 	quit_menu = load_image("images/menu/quit.png");
 
-	std::string myString("loadedimages");
-
-
 	bool session = true;
 
 	apply_surface(0, 0, menu, screen);
@@ -70,8 +67,8 @@ int game_menu()
 				}
 
 				SDL_UpdateWindowSurface(window);
-				///UPDATES THE SCREEN
 			}
+
 			if (mouse_event.type == SDL_MOUSEBUTTONDOWN)             /// mouse press
 			{
 				x = mouse_event.motion.x;                       /// mouse coords
@@ -134,8 +131,8 @@ int game_menu()
 //
 //    }
 //   // message = TTF_RenderText_Solid( font , samaya.str().c_str() , textColor ) ;
-//    apply_surface((1366-message->w)/2,0,message,screen);
-//    SDL_FreeSurface(message);
+//    apply_surface((1366-points->w)/2,0,points,screen);
+//    SDL_FreeSurface(points);
 //
 //}
 
